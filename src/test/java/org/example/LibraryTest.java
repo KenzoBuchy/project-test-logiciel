@@ -71,6 +71,23 @@ class LibraryTest {
         assertEquals(libExpected, lib.getAllBooks());
     }
 
+    @Test
+    void testGetAllBooksSort(){
+        Book book1 = new Book("Premier Livre", "Kenzo", 2024);
+        Book book2 = new Book("Deuxieme Livre", "Autre", 2022);
+        Book book3 = new Book("Troisieme Livre", "Autre", 2021);
+        Library lib = new Library();
+        List<Book> libExpected = List.of(book2, book1, book3);
+
+        assertDoesNotThrow(()->{
+            lib.addBook(book1);
+            lib.addBook(book2);
+            lib.addBook(book3);
+        });
+
+        assertEquals(libExpected, lib.sortBooksByTitle());
+    }
+
 
 
 

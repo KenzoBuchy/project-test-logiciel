@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Library {
@@ -30,6 +31,12 @@ public class Library {
             }
         }
         return null;
+    }
+
+    public List<Book> sortBooksByTitle() {
+        List<Book> sorted = new ArrayList<>(books);
+        sorted.sort(Comparator.comparing(Book::getTitle, String.CASE_INSENSITIVE_ORDER));
+        return sorted;
     }
 
     public int librarySize(){

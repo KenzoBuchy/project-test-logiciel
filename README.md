@@ -1,3 +1,4 @@
+[![Maven Tests](https://github.com/KenzoBuchy/project-test-logiciel/actions/workflows/main.yml/badge.svg)](https://github.com/KenzoBuchy/project-test-logiciel/actions/workflows/main.yml)
 # Projet Java : Gestion de Bibliothèque
 
 Ce projet est une application simple en Java qui permet de gérer une collection de livres.  
