@@ -57,6 +57,25 @@ class LibraryTest {
     }
 
     @Test
+    void testRechercheLivrePartiel(){
+        Book book1 = new Book("Premier Livre", "Kenzo", 2024);
+        Book book2 = new Book("Deuxieme Livre", "Kenzo", 2024);
+        Book book3 = new Book("Troisieme Livre", "Kenzo", 2024);
+        Library lib = new Library();
+        List<Book> libExpected = List.of(book2);
+        List<Book> libExpected2 = List.of(book1,book2,book3);
+
+        assertDoesNotThrow(()->{
+            lib.addBook(book1);
+            lib.addBook(book2);
+            lib.addBook(book3);
+        });
+
+        assertEquals(libExpected, lib.findBooksByPartialTitle("deuxieme"));
+        assertEquals(libExpected2, lib.findBooksByPartialTitle("livre"));
+    }
+
+    @Test
     void testGetAllBooks(){
         Book book1 = new Book("Premier Livre", "Kenzo", 2024);
         Book book2 = new Book("Deuxieme Livre", "Autre", 2022);

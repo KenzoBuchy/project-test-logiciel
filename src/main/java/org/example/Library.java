@@ -33,6 +33,19 @@ public class Library {
         return null;
     }
 
+    public List<Book> findBooksByPartialTitle(String partialTitle) {
+        List<Book> results = new ArrayList<>();
+        String query = partialTitle.toLowerCase();
+
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getTitle().toLowerCase().contains(query)) {
+                results.add(books.get(i));
+            }
+        }
+        return results;
+    }
+
+
     public List<Book> sortBooksByTitle() {
         List<Book> sorted = new ArrayList<>(books);
         sorted.sort(Comparator.comparing(Book::getTitle, String.CASE_INSENSITIVE_ORDER));
